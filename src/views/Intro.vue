@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <p>INTROOOOO</p>
+    <v-text-field
+        solo
+        label="Your Name Here"
+        clearable
+    ></v-text-field>
   </div>
 </template>
 
