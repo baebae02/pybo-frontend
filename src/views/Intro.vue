@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <p>INTROOOOO</p>
     <v-text-field
         solo
         label="Your Name Here"
         clearable
     ></v-text-field>
     <button @click="getQuestion">BUTTON</button>
-    <p>{{ this.questions}}</p>
+    <ul v-for="question in this.questions.question" :key="question.id">
+      <li>subject: {{ question.subject}}</li>
+      <li>content: {{ question.content}}</li>
+    </ul>
   </div>
 </template>
 
@@ -23,7 +25,6 @@ export default {
     getQuestion() {
       // axios를 이용하여 API 호출 (component 안에서 axios를 this.$axios로 사용할 수 있습니다.)
       this.$axios.get('http://127.0.0.1:5000/question/list').then(response => {
-        console.log('### response: ' + JSON.stringify(response))
         this.questions= response.data
       }).catch(error => {
         console.log(error)
