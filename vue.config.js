@@ -1,17 +1,16 @@
 module.exports = {
   devServer: {
+    host: '0.0.0.0',
+    https: false,
     disableHostCheck: true,
     port: 8000,
-    public: '0.0.0.0:8080',
+    public: '0.0.0.0:8000',
     proxy: {
-      '^/api': {
-        target: 'https://baebae02.kr',
-        ws: true,
-        changeOrigin: true,
+      '/question': {
+        target: 'http://127.0.0.1:5000'
       },
     },
   },
-
   publicPath: "/",
 
   transpileDependencies: [

@@ -1,35 +1,38 @@
 import axios from 'axios';
+import { stringify } from 'qs';
 
 const instance = axios.create({
-    baseURL: 'https://baebae02.kr',
-    timeout: 2000,
+    withCredentials: true,
+    paramsSerializer: params => stringify(params, { arrayFormat: 'repeat' }),
     validateStatus: () => true,
 });
 
-//Request Interceptor
-instance.interceptors.request.use(
-    config => {
-        //TODO: 요청을 보내기 전 수행할 로직
-        return config
-    },
-    error => {
-        //TODO: 요청 에러가 발생했을 때 수행할 로직
-        console.log(error); //DEBUGING
-        return Promise.reject(error);
-    }
-);
+class AxiosInstance {
+    async request(method, url, data = {}) {
+        const inputMethod = method.toLowerCase();
 
-//Response Interceptor
-instance.interceptors.response.use(
-    response => {
-        //TODO: 응답에 대한 로직 생성
-        return response.data
-    },
-    error => {
-        //TODO: 응답 에러가 발생했을 때 수행할 로직
-        console.log(error); //DEBUGING
-        return Promise.reject(error);
-    }
-);
+        if (!this._validateRequestMethod(inputMethod)) {
+            throw new Error('올바른 요청이 아닙니다.');
+        }
 
-export default instance;
+        if (this._isNeededToBeSerialize(inputMethod)) {
+            return instance.request({
+                method,
+                url,
+                params: { ...data, currentTime: Date.now() },
+            });
+        }
+
+        return instance.request({ method, url, data });
+    }
+
+    _validateRequestMethod(method) {
+        return ['get', 'post', 'patch', 'put', 'delete'].includes(method);
+    }
+
+    _isNeededToBeSerialize(method) {
+        return ['get', 'delete'].includes(method);
+    }
+}
+
+export const axiosInstance = new AxiosInstance();

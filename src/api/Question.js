@@ -1,4 +1,4 @@
-import instance from "@/api/instance";
+import {axiosInstance} from "@/api/instance";
 
 /*
 질문 목록을 가져옵니다.
@@ -6,7 +6,7 @@ import instance from "@/api/instance";
 @param {number} limit
  */
 const getQuestionList = async (page, limit) => {
-    return instance.request.use('/api/list', {
+    return axiosInstance.request('/api/list', {
         page: page,
         limit: limit
     });
@@ -17,7 +17,7 @@ const getQuestionList = async (page, limit) => {
 @param id
  */
 const getQuestion = async id => {
-    return instance.request.use('GET', '/api/detail', { id });
+    return axiosInstance.request('GET', '/api/detail', { id });
 };
 
 /*
@@ -27,7 +27,7 @@ const getQuestion = async id => {
 @param {string} data.content
  */
 const createQuestion = async data => {
-    return instance.request.use('POST', '/api/create', data);
+    return axiosInstance.request('POST', '/api/create', data);
 };
 
 /*
@@ -37,7 +37,7 @@ const createQuestion = async data => {
 @param {string} data.content
  */
 const updateQuestion = async data => {
-    return instance.request.use('PUT', '/api/modify', data);
+    return axiosInstance.request('PUT', '/api/modify', data);
 };
 
 /*
@@ -45,7 +45,7 @@ const updateQuestion = async data => {
 @param {string} id
  */
 const deleteQuestion = async id => {
-    return instance.request.use('DELETE', '/api/delete', { id} );
+    return axiosInstance.request('DELETE', '/api/delete', { id} );
 };
 
 export default {
