@@ -1,13 +1,7 @@
 <template>
-    <span>
-      <span v-if="PurPle" :class="{PurPle}">
+    <span :class="{Bold, Gray, General, Purple}">
         {{ content }}
-        </span>
-      <div v-else :class="{Bold, Gray, General}">
-        {{ content }}
-      </div>
     </span>
-    
 </template>
 
 <script>
@@ -23,28 +17,29 @@ export default {
       'Bold',
       'Gray',
       'General',
-      'PurPle',
+      'Purple',
   ],
 }
 </script>
 
 <style>
+    * { font-family: 'Noto Sans KR'; }
     .Bold {
-        font-weight: 700;
+        font-weight: bold;
         font-size: 48px;
         color: #3E3E3E;
     }
     .Gray {
-        font-weight: 700;
+        font-weight: bold;
         font-size: 24px;
         color: #808080;
     }
     .General {
-        font-size: 21px;
+        font-size: 20px;
         font-weight: 500;
     }
-    .PurPle {
+    .Purple {
         color: #744CF3;
-        font-weight: 700;
+        font-weight: bold;
     }
 </style>
