@@ -1,5 +1,5 @@
 <template>
-    <span :class="{Bold, Gray, General, Purple}">
+    <span :class="{Bold, Gray, General, Purple, Bolder}">
         {{ content }}
     </span>
 </template>
@@ -18,12 +18,18 @@ export default {
       'Gray',
       'General',
       'Purple',
+      'Bolder',
   ],
 }
 </script>
 
 <style>
     .Bold {
+        font-weight: bold;
+        font-size: 36px;
+        color: #3E3E3E;
+    }
+    .Bolder {
         font-weight: bold;
         font-size: 48px;
         color: #3E3E3E;
