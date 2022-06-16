@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style>
-    * { font-family: 'Noto Sans KR'; }
     .Bold {
         font-weight: bold;
         font-size: 48px;
@@ -41,5 +40,17 @@ export default {
     .Purple {
         color: #744CF3;
         font-weight: bold;
+    }
+    
+    @media (max-width: 800px) {
+         .Bold {
+            font-size: 36px;
+        }
+        .Gray {
+            font-size: 18px;
+        }
+        .General {
+            font-size: 14px;
+        }    
     }
 </style>
