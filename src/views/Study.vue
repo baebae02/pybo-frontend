@@ -1,7 +1,7 @@
 <template>
     <div class="template">
         <div class="top">
-            <img id="study" src="@/assets/study.png" width="450px">
+            <img class="study" src="@/assets/study.png">
             <div class="textArea">
                 <TextOption Bold="true" content="Welcome Study"></TextOption>
                 <TextOption Gray="true" content="공부하러 오셨군요!"></TextOption>
@@ -13,10 +13,10 @@
                 </div>
                 <div class="progress">
                     <div v-for="index in current" :key="index">
-                        <img id="fry" src="@/assets/fry.png" width="42px"/>  
+                        <img id="fry" src="@/assets/fry.png"/>  
                     </div>
                     <div v-for="index in total-current" :key="index">
-                        <img id="fry" src="@/assets/egg.png" width="42px"/>  
+                        <img id="fry" src="@/assets/egg.png"/>  
                     </div>
                 </div>
             </div>
@@ -62,11 +62,17 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 100%;
+        height: auto;
     }
     .top {
         display: flex;
         justify-content: center;
         margin-top: 128px;
+        width: 100%;
+    }
+    .top .study {
+        width: 450px;
     }
     .textArea {
         display: flex;
@@ -83,6 +89,7 @@ export default {
     }
     #fry {
         margin-right: 28px;
+         width: 42px;
     }
     .splitBar {
         width: 80%;
@@ -106,4 +113,19 @@ export default {
             }
         }
     }
+    @media (max-width: 800px) {
+    .top {
+        flex-direction: column;
+    }
+    .top .study {
+        width: 150px;
+    }
+    #fry {
+        margin-right: 14px;
+        width: 24px;
+    }
+    .bottom {
+        flex-direction: column;
+    }
+}
 </style>

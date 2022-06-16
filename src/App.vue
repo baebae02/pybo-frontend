@@ -1,10 +1,11 @@
 <template>
-  <v-app>
+  <div class="app">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <GNB/>
-    <v-main>
+    <div class="content">
       <router-view :key="$route.fullPath"/>
-    </v-main>
-  </v-app>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -20,8 +21,24 @@ export default {
 };
 </script>
 <style>
-    .GNB {
-        position: fixed;
-        top: 0;
-    }
+    
+* { font-family: 'Noto Sans KR'; }
+
+.app {
+    width: 100%;
+    height: auto;
+}
+.content {
+    margin: 0px 15px;
+}
+body {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+button {
+  padding: 0;
+}
+
 </style>
