@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="signup">
 	<div v-if="page" class="wrapper">
 		<div class="welcomeText">스터디의 <br/>
 		일원이 된 걸 <br/>
@@ -22,7 +22,7 @@
 		</form>
 	</div>
     <div v-else class="wrapper">
-		<div class="welcomeText">몇 가지만 <br/>
+		<div class="welcomeText">몇 가지만<br/>
 		더 입력하면<br/>
 		가입이 완료돼요 :)
         </div>
@@ -102,44 +102,47 @@
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+.signup {
+  font-family: 'Noto Sans KR', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+	
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #2c3e50;
-  margin-top: 64px;
+  min-height: 100vh;
 }
 
 .wrapper {
 	display: flex;
-	border: 2px solid #808080;
+	border: 2px solid #a0a0a0;
 	border-radius: 16px;
 	flex-direction: column;
-	padding: 40px;
-    flex-grow: 1;
-    margin: 0px 600px 0px 600px;
+	padding: 40px 64px;
+	margin-top: 40px;
 }
+	
 form {
 	display: flex;
-	justify-content: left;
 	flex-direction: column;
+	margin-top: 40px;
 }
 
 .welcomeText {
-	background: linear-gradient(126.3deg, #744CF3 0%, #B8A2FF 100%);
-	font-size: 35px;
-	font-weight: 700;
-	line-height: 50px;
+	font-size: 40px;
+	font-weight: bold;
+	font-family: 'Noto Sans KR', sans-serif;
+	
+	line-height: 54px;
+	
+	background: linear-gradient(180deg, #744CF3 0%, #B8A2FF 100%);
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	text-align: left;
 }
 .inputarea {
-	margin: 15px 0px;
+	margin-bottom: 24px;
 	display: flex;
 	flex-direction: column;
     justify-content: left;
@@ -147,26 +150,42 @@ form {
 
 .inputarea label {
 	text-align: left;
-    font-weight: 700;
-	font-size: 20px;
 	color: #808080;
+	font-size: 20px;
+    font-weight: bold;
+	
+	margin-left: 4px;
 }
 
 .inputarea input {
-	height: 55px;
+	height: 61px;
 	border: 1px solid #808080;
 	border-radius: 16px;
-
+	
+	font-size: 20px;
+	font-weight: bold;
+	
+	padding: 16px 80px 16px 12px;
 }
 
 .nextBtn {
-	flex-grow: 1;
-	height: 55px;
 	background: #744CF3;
 	border-radius: 16px;
 	font-size: 24px;
 	color: #FFFFFF;
-	font-weight: 700;
-    margin: 68px 0px 12px 0px;
+	font-weight: bold;
+	padding: 16px 0;
+    margin-top: 100px;
+	
+	cursor: pointer;
+}
+	
+.nextBtn:hover {
+	background-color: #643fd9;
+	color: #e3e3e3;
+}
+.nextBtn:active {
+	background-color: #5135AA;
+	color: #B3B3B3;
 }
 </style>
