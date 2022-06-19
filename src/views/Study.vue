@@ -56,7 +56,7 @@
             <div class="subject">연결 리스트(Linked List)</div>
             <img src="@/assets/study/linkedList.png" style="margin-top: 10px;" alt=""/>
         </div>
-        <div class="contents">
+        <div>
             <div class="item">
                 <div class="left" style="background-color: rgba(116, 76, 243, 0.1);"></div>
                 <div class="right">
@@ -201,9 +201,9 @@ export default {
     
     .plan {
         display: flex;
-        width: 100%;
+        width: 60%;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     .time {
         display: flex;
@@ -264,12 +264,17 @@ export default {
         grid-template-columns: 10px 1fr;
         flex-direction: column;
         column-gap: 20px;
+        row-gap: 4px;
         .right {
           display: flex;
           flex-direction: column;
         }
+        .right span:nth-child(2) {
+          margin-top: -8px;
+        }
         .contents {
           background-color: rgba(116, 76, 243, 0.1);
+          padding: 0 16px 0 4px;
         }
     }
     .contents {
@@ -286,6 +291,8 @@ export default {
         .topic {
           display: flex;
           align-items: center;
+          flex-wrap: wrap;
+          gap: 2px;
         }
     }
 
