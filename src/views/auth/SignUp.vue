@@ -12,11 +12,11 @@
 			</div>
 			<div class="inputarea">
 				<label for="password1">비밀번호</label>
-				<input type="password" id="password1" v-model="password1"/>
+				<input type="password" id="password1" v-model="password1" style="letter-spacing: 1px;"/>
 			</div>
 			<div class="inputarea">
 				<label for="password2">비밀번호 확인</label>
-				<input type="password" id="password2" v-model="password2"/>
+				<input type="password" id="password2" v-model="password2" style="letter-spacing: 1px;"/>
 			</div>
 			<button class="nextBtn" click="pagination">다음</button>
 		</form>
@@ -101,7 +101,7 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .signup {
   font-family: 'Noto Sans KR', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -141,31 +141,30 @@ form {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
+	
 .inputarea {
 	margin-bottom: 24px;
 	display: flex;
 	flex-direction: column;
     justify-content: left;
-}
+	& > label {
+		text-align: left;
+		color: #808080;
+		font-size: 20px;
+		font-weight: bold;
 
-.inputarea label {
-	text-align: left;
-	color: #808080;
-	font-size: 20px;
-    font-weight: bold;
-	
-	margin-left: 4px;
-}
+		margin-left: 4px;
+	}
+	& > input {
+		height: 61px;
+		border: 1px solid #808080;
+		border-radius: 16px;
 
-.inputarea input {
-	height: 61px;
-	border: 1px solid #808080;
-	border-radius: 16px;
-	
-	font-size: 20px;
-	font-weight: bold;
-	
-	padding: 16px 80px 16px 12px;
+		font-size: 20px;
+		font-weight: bold;
+
+		padding: 16px 80px 16px 12px;
+	}
 }
 
 .nextBtn {
