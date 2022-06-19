@@ -1,23 +1,23 @@
 <template>
     <div class="gnb">
       <img src="@/assets/logo.svg" alt="" @click="goHome">
-      <div class="right">
-        <router-link :class="{text: true, now: true}" to="/">
+      <nav class="nav">
+        <router-link class=text class-active="active" to="/" exact>
           소개
         </router-link>
-        <router-link :class="{text: true, now}" to="/study">
+        <router-link class=text class-active="active" to="/study" exact>
           스터디
         </router-link>
-        <router-link :class="{text: true, now}" to="/">
+        <router-link class=text class-active="active" to="/subject" exact>
           과제
         </router-link>
-        <router-link :class="{text: true, now}" to="/">
+        <router-link class=text class-active="active" to="/attendance" exact>
           출석부
         </router-link>
-        <router-link class="sign" to="/signup">
+        <router-link class="sign" class-active="active" to="/signup">
           로그인
         </router-link>
-      </div>
+      </nav>
 	</div>
 </template>
 
@@ -40,9 +40,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+nav .text:hover {
+  color: rgba(229, 229, 229, 1) !important;
+}
+nav .text:active {
+  color: rgba(179, 179, 179, 1) !important;
+}
+nav .text.router-link-active,
+nav .text.router-link-exact-active {
+  color: rgba(255, 184, 0, 1) !important;
+}
+nav .text.router-link-active:hover {
+  color: rgba(229, 166, 0, 1) !important;
+}
+nav .text.router-link-exact-active:active {
+  color: rgba(179, 129, 0, 1) !important;
+}
+
   a {
     text-decoration: none;
   }
+
 	.gnb {
 		position: fixed;
 		top: 0;
@@ -63,35 +81,18 @@ export default {
 		& > img {
 			cursor: pointer;
 		}
-		& > .right {
+		& > .nav {
 			display: flex;
-			flex-diretion: row;
+			flex-direction: row;
 			align-items: center;
 			gap: 40px;
 			& > .text {
-				color: #FFFFFF;
 				font-size: 16px;
 				font-weight: bold;
 				cursor: pointer;
 				padding: 10px 10px;
-
 				user-select: none;
-
-				&:hover {
-					color: #e5e5e5;
-				}
-				&:active {
-					color: #B3B3B3;
-				}
-			}
-			& > .now {
-				color: #FFB800;
-				&:hover {
-					color: #E5A600;
-				}
-				&:active {
-					color: #B38100;
-				}
+        color: #FFFFFF;
 			}
 			& > .sign {
 				color: #ffffff80;

@@ -30,6 +30,16 @@ const routes = [
 	name: 'StudyInfo',
 	component: () => import(/* webpackChunkName: "study" */ '../views/Study.vue')
   },
+  {
+    path: '/subject',
+    name: 'Subject',
+    component: () => import(/* webpackChunkName: "subject */ '../views/Subject.vue')
+  },
+  {
+    path: '/attendance',
+    name: 'Attendance',
+    component: () => import(/* webpackChunkName: "attendance" */ '../views/Attendance.vue')
+  },
 ]
 
 const router = new VueRouter({
