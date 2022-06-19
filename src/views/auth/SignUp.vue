@@ -1,51 +1,54 @@
 <template>
   <div class="signup">
-	<div v-if="page" class="wrapper">
-		<div class="welcomeText">스터디의 <br/>
-		일원이 된 걸 <br/>
-		환영합니다!
+    <div class="wrapper">
+      <form>
+      <input type="hidden" name="_token" :value="csrf">
+        <div v-if="page">
+          <div class="welcomeText">스터디의 <br/>
+          일원이 된 걸 <br/>
+          환영합니다!
+          </div>
+          <div class="inputWrapper">
+            <div class="inputArea">
+              <label for="nickname">아이디</label>
+              <input type="text" id="nickname" v-model="nickname"/>
+            </div>
+            <div class="inputArea">
+              <label for="password1">비밀번호</label>
+              <input type="password" id="password1" v-model="password1"/>
+            </div>
+            <div class="inputArea">
+              <label for="password2">비밀번호 확인</label>
+              <input type="password" id="password2" v-model="password2"/>
+            </div>
+          </div>
+          <button class="nextBtn" @click="pagination">다음</button>
         </div>
-		<form>
-			<div class="inputarea">
-				<label for="nickname">아이디</label>
-				<input type="text" id="nickname" v-model="nickname"/>
-			</div>
-			<div class="inputarea">
-				<label for="password1">비밀번호</label>
-				<input type="password" id="password1" v-model="password1"/>
-			</div>
-			<div class="inputarea">
-				<label for="password2">비밀번호 확인</label>
-				<input type="password" id="password2" v-model="password2"/>
-			</div>
-			<button class="nextBtn" click="pagination">다음</button>
-		</form>
-	</div>
-    <div v-else class="wrapper">
-		<div class="welcomeText">몇 가지만<br/>
-		더 입력하면<br/>
-		가입이 완료돼요 :)
+        <div v-else>
+          <div class="welcomeText">몇 가지만<br/>
+          더 입력하면<br/>
+          가입이 완료돼요 :)
+          </div>
+          <div class="inputArea">
+            <label for="username">이름</label>
+            <input type="text" id="username" v-model="username"/>
+          </div>
+          <div class="inputArea">
+            <label for="phone">전화번호</label>
+            <input type="text" id="phone" v-model="phone"/>
+          </div>
+          <div class="inputArea">
+            <label for="email">이메일</label>
+            <input type="text" id="email" v-model="email"/>
+          </div>
+          <div class="inputArea">
+            <label for="baekjoon">백준 아이디</label>
+            <input type="text" id="baekjoon" v-model="baekjoon"/>
+          </div>
+          <button class="nextBtn" @click="signUp">회원가입</button>
         </div>
-        <form type="submit">
-			<div class="inputarea">
-				<label for="username">이름</label>
-				<input type="text" id="username" v-model="username"/>
-			</div>
-            <div class="inputarea">
-				<label for="phone">전화번호</label>
-				<input type="text" id="phone" v-model="phone"/>
-			</div>
-			<div class="inputarea">
-				<label for="email">이메일</label>
-				<input type="text" id="email" v-model="email"/>
-			</div>
-            <div class="inputarea">
-				<label for="baekjoon">백준 아이디</label>
-				<input type="text" id="baekjoon" v-model="baekjoon"/>
-			</div>
-            <button class="nextBtn" click="signUp">회원가입</button>
-		</form>
-	</div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -54,6 +57,7 @@
       name: 'SignUp',
       data() {
         return {
+            csrf: document.head.querySelector('meta[name="csrf-token"]') ? document.head.querySelector('meta[name="csrf-token"]').content : '',
             questions : [],
             username : '',
             nickname: '', 
@@ -65,32 +69,30 @@
             loginSuccess: false,
             loginError: false,
             page: true,
-            //csrf: document.head.querySelector('meta[name="csrf-token"]').content
         };
       },
       methods: {
-        signUp() {
+        async signUp() {
           // axios를 이용하여 API 호출 (component 안에서 axios를 this.$axios로 사용할 수 있습니다.)
-          try {
-                const result = this.$axios.post('https://baebae02.kr/auth/signUp', {
-                    username: this.username, 
-                    nickname: this.nickname, 
-                    password1: this.password1,
-                    password2: this.password2, 
-                    email: this.email, 
-                    phone: this.phone,
-                    baekjoon: this.baekjoon
-                });
-                if (result.status == 200) {
-                    this.loginSuccess = true;
-                    alert('회원가입 되었습니다.');
-                }
-                else {
-                   alert(result.status);
-               }
-            } catch (err) {
-                    this.loginError = true;
-                    throw new Error(err);
+            alert(this.username);
+            const res = await this.$axios.post('http://127.0.0.1:5000/auth/signup', {
+              username: this.username,
+              nickname: this.nickname,
+              password1: this.password1,
+              password2: this.password2,
+              email: this.email,
+              phone: this.phone,
+              baekjoon: this.baekjoon
+            }).catch(function (error) {
+              console.log(error);
+            });
+            console.log(res);
+            if (res.status === 200) {
+              this.loginSuccess = true;
+              alert(res);
+              alert('회원가입 되었습니다.');
+            } else {
+              alert(res.status);
             }
         },
         pagination() {
@@ -117,11 +119,13 @@
 
 .wrapper {
 	display: flex;
+  width: 100%;
 	border: 2px solid #a0a0a0;
 	border-radius: 16px;
 	flex-direction: column;
-	padding: 40px 64px;
-	margin-top: 40px;
+	padding: 0 64px;
+  justify-content: space-between;
+	margin: 169px 457px;
 }
 	
 form {
@@ -134,37 +138,37 @@ form {
 	font-size: 40px;
 	font-weight: bold;
 	font-family: 'Noto Sans KR', sans-serif;
-	
-	line-height: 54px;
-	
+  margin: 40px 0;
 	background: linear-gradient(180deg, #744CF3 0%, #B8A2FF 100%);
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
-.inputarea {
-	margin-bottom: 24px;
+
+.inputWrapper {
+  margin-bottom: 100px;
+}
+.inputArea {
+	margin: 12px 0;
 	display: flex;
 	flex-direction: column;
-    justify-content: left;
+  justify-content: left;
 }
 
-.inputarea label {
+.inputArea label {
 	text-align: left;
 	color: #808080;
 	font-size: 20px;
-    font-weight: bold;
+  font-weight: bold;
 	
 	margin-left: 4px;
 }
 
-.inputarea input {
+.inputArea input {
 	height: 61px;
 	border: 1px solid #808080;
 	border-radius: 16px;
-	
 	font-size: 20px;
 	font-weight: bold;
-	
 	padding: 16px 80px 16px 12px;
 }
 
@@ -175,8 +179,8 @@ form {
 	color: #FFFFFF;
 	font-weight: bold;
 	padding: 16px 0;
-    margin-top: 100px;
-	
+  width: 100%;
+  margin-bottom: 52px;
 	cursor: pointer;
 }
 	
@@ -184,8 +188,19 @@ form {
 	background-color: #643fd9;
 	color: #e3e3e3;
 }
+
 .nextBtn:active {
 	background-color: #5135AA;
 	color: #B3B3B3;
+}
+
+@media (max-width: 800px) {
+    .wrapper {
+      padding: 0 32px;
+      border: none;
+    }
+    .welcomeText {
+      font-size: 30px;
+    }
 }
 </style>
