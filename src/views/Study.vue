@@ -1,5 +1,6 @@
 <template>
     <div class="template">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <div class="top">
             <img class="study-img" src="@/assets/study.png" alt="">
             <div class="textArea">

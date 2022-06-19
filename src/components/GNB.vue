@@ -92,7 +92,7 @@ nav .text.router-link-exact-active:active {
 				cursor: pointer;
 				padding: 10px 10px;
 				user-select: none;
-        		color: #FFFFFF;
+          color: #FFFFFF;
 			}
 			& > .sign {
 				color: #ffffff80;

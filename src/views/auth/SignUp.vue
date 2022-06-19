@@ -115,17 +115,16 @@
   align-items: center;
   color: #2c3e50;
   min-height: 100vh;
+  margin: 80px 0;
 }
 
 .wrapper {
 	display: flex;
-  width: 100%;
 	border: 2px solid #a0a0a0;
 	border-radius: 16px;
 	flex-direction: column;
 	padding: 0 64px;
   justify-content: space-between;
-	margin: 169px 457px;
 }
 	
 form {
@@ -138,7 +137,7 @@ form {
 	font-size: 40px;
 	font-weight: bold;
 	font-family: 'Noto Sans KR', sans-serif;
-  margin: 40px 0;
+  margin-bottom: 40px;
 	background: linear-gradient(180deg, #744CF3 0%, #B8A2FF 100%);
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
