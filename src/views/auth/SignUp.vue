@@ -24,6 +24,7 @@
           </div>
           <button class="nextBtn" @click="pagination">다음</button>
         </div>
+<<<<<<< HEAD
         <div v-else>
           <div class="welcomeText">몇 가지만<br/>
           더 입력하면<br/>
@@ -46,6 +47,28 @@
             <input type="text" id="baekjoon" v-model="baekjoon"/>
           </div>
           <button class="nextBtn" @click="signUp">회원가입</button>
+=======
+		<form>
+			<div class="inputarea">
+				<label for="nickname">아이디</label>
+				<input type="text" id="nickname" v-model="nickname"/>
+			</div>
+			<div class="inputarea">
+				<label for="password1">비밀번호</label>
+				<input type="password" id="password1" v-model="password1" style="letter-spacing: 1px;"/>
+			</div>
+			<div class="inputarea">
+				<label for="password2">비밀번호 확인</label>
+				<input type="password" id="password2" v-model="password2" style="letter-spacing: 1px;"/>
+			</div>
+			<button class="nextBtn" click="pagination">다음</button>
+		</form>
+	</div>
+    <div v-else class="wrapper">
+		<div class="welcomeText">몇 가지만<br/>
+		더 입력하면<br/>
+		가입이 완료돼요 :)
+>>>>>>> eb548bc269968c2ad25f1f099783e4e187749a74
         </div>
       </form>
     </div>
@@ -103,7 +126,7 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .signup {
   font-family: 'Noto Sans KR', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -143,6 +166,7 @@ form {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
+<<<<<<< HEAD
 
 .inputWrapper {
   margin-bottom: 100px;
@@ -170,6 +194,32 @@ form {
 	font-size: 20px;
 	font-weight: bold;
 	padding: 16px 80px 16px 12px;
+=======
+	
+.inputarea {
+	margin-bottom: 24px;
+	display: flex;
+	flex-direction: column;
+    justify-content: left;
+	& > label {
+		text-align: left;
+		color: #808080;
+		font-size: 20px;
+		font-weight: bold;
+
+		margin-left: 4px;
+	}
+	& > input {
+		height: 61px;
+		border: 1px solid #808080;
+		border-radius: 16px;
+
+		font-size: 20px;
+		font-weight: bold;
+
+		padding: 16px 80px 16px 12px;
+	}
+>>>>>>> eb548bc269968c2ad25f1f099783e4e187749a74
 }
 
 .nextBtn {
