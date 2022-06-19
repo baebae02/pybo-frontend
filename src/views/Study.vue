@@ -54,6 +54,28 @@
             <div class="subject">연결 리스트(Linked List)</div>
             <img src="@/assets/study/linkedList.png"/> 
         </div>
+        <div class="contents">
+            <div class="item">
+                <TextOption Purple="true" content="Singly Linked List" style="font-size:20px;"></TextOption>
+                <TextOption Bold="true" content="단일 연결 리스트란?"></TextOption>
+                <p>각 노드가 데이터와 다음 노드 정보를 가지고 <br/>한 줄로 연결되어 있는 방식으로 데이터를 저장하는 자료 구조</p>
+            </div>
+            <div class="item">
+                <TextOption Purple="true" content="Singly Linked List" style="font-size:20px;"></TextOption>
+                <TextOption Bold="true" content="단일 연결 리스트란?"></TextOption>
+                <p>단순 연결 리스트와는 다르게 노드가 이전 노드와 다음 노드로 구성되어 있는 자료 구조</p>
+            </div>
+            <div class="item">
+                <TextOption Purple="true" content="Singly Linked List" style="font-size:20px;"></TextOption>
+                <TextOption Bold="true" content="단일 연결 리스트란?"></TextOption>
+                <p>마지막 노드가 첫 번째 노드를 가리켜서, 연결의 형태가 원을 이루는 다음 구조의 연결 리스트를 가리키는 자료 구조</p>
+            </div>
+        </div>
+        <div class="this">
+            <TextOption Gray="true" content="이번 시간에 배울 내용" style="font-size:20px;"></TextOption>
+            <div class="subject">퀵 정렬(Quick Sort)</div>
+            <img src="@/assets/study/linkedList.png"/> 
+        </div>
     </div>
 </template>
 
@@ -156,7 +178,8 @@ export default {
     }
     .last {
         display: flex;
-        margin: 100px 0px;
+        margin: 100px 10px;
+        width: 100%;
         flex-direction: column;
         align-items: center;
     }
@@ -171,6 +194,18 @@ export default {
         -webkit-text-fill-color: transparent;
         background-clip: text;
         margin: 10px;
+    }
+    .contents {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 24px;
+        column-gap: 126px;
+        margin: 50px 0px 60px;
+    }
+    .item {
+        display: flex;
+        flex-direction: column;
     }
     
     
@@ -192,6 +227,14 @@ export default {
     }
     .time {
         margin-bottom: 30px;
+    }
+    .subject {
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .contents {
+        grid-template-columns: 1fr;
+        width: 100%;
     }
 }
 </style>
