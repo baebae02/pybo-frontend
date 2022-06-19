@@ -2,7 +2,7 @@
     <div class="gnb">
       <img src="@/assets/logo.svg" alt="" @click="goHome">
       <nav class="nav">
-        <router-link class=text class-active="active" to="/" exact>
+        <router-link class=text class-active="active" to="/introduce" exact>
           소개
         </router-link>
         <router-link class=text class-active="active" to="/study" exact>
@@ -92,7 +92,7 @@ nav .text.router-link-exact-active:active {
 				cursor: pointer;
 				padding: 10px 10px;
 				user-select: none;
-        color: #FFFFFF;
+        		color: #FFFFFF;
 			}
 			& > .sign {
 				color: #ffffff80;

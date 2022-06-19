@@ -40,6 +40,11 @@ const routes = [
     name: 'Attendance',
     component: () => import(/* webpackChunkName: "attendance" */ '../views/Attendance.vue')
   },
+  {
+    path: '/introduce',
+    name: 'Introduce',
+    component: () => import(/* webpackChunkName: "introduce" */ '../views/Introduce.vue')
+  },
 ]
 
 const router = new VueRouter({
