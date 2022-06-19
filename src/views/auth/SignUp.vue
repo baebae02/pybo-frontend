@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <div class="wrapper">
-      <form>
+      <form type="submit">
       <input type="hidden" name="_token" :value="csrf">
         <div v-if="page">
           <div class="welcomeText">스터디의 <br/>
@@ -22,53 +22,32 @@
               <input type="password" id="password2" v-model="password2"/>
             </div>
           </div>
-          <button class="nextBtn" @click="pagination">다음</button>
+          <button type="button" class="nextBtn" @click="pagination">다음</button>
         </div>
-<<<<<<< HEAD
         <div v-else>
           <div class="welcomeText">몇 가지만<br/>
           더 입력하면<br/>
           가입이 완료돼요 :)
           </div>
-          <div class="inputArea">
-            <label for="username">이름</label>
-            <input type="text" id="username" v-model="username"/>
+          <div class="inputWrapper">
+            <div class="inputArea">
+              <label for="username">이름</label>
+              <input type="text" id="username" v-model="username"/>
+            </div>
+            <div class="inputArea">
+              <label for="phone">전화번호</label>
+              <input type="text" id="phone" v-model="phone"/>
+            </div>
+            <div class="inputArea">
+              <label for="email">이메일</label>
+              <input type="text" id="email" v-model="email"/>
+            </div>
+            <div class="inputArea">
+              <label for="baekjoon">백준 아이디</label>
+              <input type="text" id="baekjoon" v-model="baekjoon"/>
+            </div>
           </div>
-          <div class="inputArea">
-            <label for="phone">전화번호</label>
-            <input type="text" id="phone" v-model="phone"/>
-          </div>
-          <div class="inputArea">
-            <label for="email">이메일</label>
-            <input type="text" id="email" v-model="email"/>
-          </div>
-          <div class="inputArea">
-            <label for="baekjoon">백준 아이디</label>
-            <input type="text" id="baekjoon" v-model="baekjoon"/>
-          </div>
-          <button class="nextBtn" @click="signUp">회원가입</button>
-=======
-		<form>
-			<div class="inputarea">
-				<label for="nickname">아이디</label>
-				<input type="text" id="nickname" v-model="nickname"/>
-			</div>
-			<div class="inputarea">
-				<label for="password1">비밀번호</label>
-				<input type="password" id="password1" v-model="password1" style="letter-spacing: 1px;"/>
-			</div>
-			<div class="inputarea">
-				<label for="password2">비밀번호 확인</label>
-				<input type="password" id="password2" v-model="password2" style="letter-spacing: 1px;"/>
-			</div>
-			<button class="nextBtn" click="pagination">다음</button>
-		</form>
-	</div>
-    <div v-else class="wrapper">
-		<div class="welcomeText">몇 가지만<br/>
-		더 입력하면<br/>
-		가입이 완료돼요 :)
->>>>>>> eb548bc269968c2ad25f1f099783e4e187749a74
+          <button class="nextBtn" type="button" @click="signUp">회원가입</button>
         </div>
       </form>
     </div>
@@ -96,8 +75,7 @@
       },
       methods: {
         async signUp() {
-          // axios를 이용하여 API 호출 (component 안에서 axios를 this.$axios로 사용할 수 있습니다.)
-            alert(this.username);
+          // axios를 이용하여 API 호출 (component 안에서 axios를 this.$axios로 사용할 수 있습니다.
             const res = await this.$axios.post('http://127.0.0.1:5000/auth/signup', {
               username: this.username,
               nickname: this.nickname,
@@ -112,7 +90,6 @@
             console.log(res);
             if (res.status === 200) {
               this.loginSuccess = true;
-              alert(res);
               alert('회원가입 되었습니다.');
             } else {
               alert(res.status);
@@ -166,7 +143,6 @@ form {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
-<<<<<<< HEAD
 
 .inputWrapper {
   margin-bottom: 100px;
@@ -188,14 +164,14 @@ form {
 }
 
 .inputArea input {
-	height: 61px;
-	border: 1px solid #808080;
-	border-radius: 16px;
-	font-size: 20px;
-	font-weight: bold;
-	padding: 16px 80px 16px 12px;
-=======
-	
+  height: 61px;
+  border: 1px solid #808080;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px 80px 16px 12px;
+}
+
 .inputarea {
 	margin-bottom: 24px;
 	display: flex;
@@ -219,7 +195,6 @@ form {
 
 		padding: 16px 80px 16px 12px;
 	}
->>>>>>> eb548bc269968c2ad25f1f099783e4e187749a74
 }
 
 .nextBtn {
@@ -245,12 +220,13 @@ form {
 }
 
 @media (max-width: 800px) {
-    .wrapper {
-      padding: 0 32px;
-      border: none;
-    }
-    .welcomeText {
-      font-size: 30px;
-    }
+  .wrapper {
+    padding: 0 32px;
+    border: none;
+    margin: 0;
+  }
+  .welcomeText {
+    font-size: 30px;
+  }
 }
 </style>
