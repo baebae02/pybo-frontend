@@ -28,9 +28,6 @@ export default {
     width: 100%;
     height: auto;
 }
-.content {
-    margin: 0px 15px;
-}
 body {
   margin: 0;
 }
