@@ -7,12 +7,9 @@
 export default {
   name: 'Subject',
   data() {
-    return {
-
-    };
+    return {};
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 

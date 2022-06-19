@@ -2,11 +2,11 @@
   <div class="signup">
     <div class="wrapper">
       <form type="submit">
-      <input type="hidden" name="_token" :value="csrf">
+        <input type="hidden" name="_token" :value="csrf">
         <div v-if="page">
           <div class="welcomeText">스터디의 <br/>
-          일원이 된 걸 <br/>
-          환영합니다!
+            일원이 된 걸 <br/>
+            환영합니다!
           </div>
           <div class="inputWrapper">
             <div class="inputArea">
@@ -26,8 +26,8 @@
         </div>
         <div v-else>
           <div class="welcomeText">몇 가지만<br/>
-          더 입력하면<br/>
-          가입이 완료돼요 :)
+            더 입력하면<br/>
+            가입이 완료돼요 :)
           </div>
           <div class="inputWrapper">
             <div class="inputArea">
@@ -55,52 +55,52 @@
 </template>
 
 <script>
-    export default {
-      name: 'SignUp',
-      data() {
-        return {
-            csrf: document.head.querySelector('meta[name="csrf-token"]') ? document.head.querySelector('meta[name="csrf-token"]').content : '',
-            questions : [],
-            username : '',
-            nickname: '', 
-            password1: '', 
-            password2: '',
-            email: '', 
-            phone: '',
-            baekjoon: '',
-            loginSuccess: false,
-            loginError: false,
-            page: true,
-        };
-      },
-      methods: {
-        async signUp() {
-          // axios를 이용하여 API 호출 (component 안에서 axios를 this.$axios로 사용할 수 있습니다.
-            const res = await this.$axios.post('http://127.0.0.1:5000/auth/signup', {
-              username: this.username,
-              nickname: this.nickname,
-              password1: this.password1,
-              password2: this.password2,
-              email: this.email,
-              phone: this.phone,
-              baekjoon: this.baekjoon
-            }).catch(function (error) {
-              console.log(error);
-            });
-            console.log(res);
-            if (res.status === 200) {
-              this.loginSuccess = true;
-              alert('회원가입 되었습니다.');
-            } else {
-              alert(res.status);
-            }
-        },
-        pagination() {
-            this.page = !this.page;
-            console.log(this.page);
-        },
+export default {
+  name: 'SignUp',
+  data() {
+    return {
+      csrf: document.head.querySelector('meta[name="csrf-token"]') ? document.head.querySelector('meta[name="csrf-token"]').content : '',
+      questions: [],
+      username: '',
+      nickname: '',
+      password1: '',
+      password2: '',
+      email: '',
+      phone: '',
+      baekjoon: '',
+      loginSuccess: false,
+      loginError: false,
+      page: true,
+    };
+  },
+  methods: {
+    async signUp() {
+      // axios를 이용하여 API 호출 (component 안에서 axios를 this.$axios로 사용할 수 있습니다.
+      const res = await this.$axios.post('http://127.0.0.1:5000/auth/signup', {
+        username: this.username,
+        nickname: this.nickname,
+        password1: this.password1,
+        password2: this.password2,
+        email: this.email,
+        phone: this.phone,
+        baekjoon: this.baekjoon
+      }).catch(function (error) {
+        console.log(error);
+      });
+      console.log(res);
+      if (res.status === 200) {
+        this.loginSuccess = true;
+        alert('회원가입 되었습니다.');
+      } else {
+        alert(res.status);
       }
-    }
+    },
+    pagination() {
+      this.page = !this.page;
+      console.log(this.page);
+    },
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -108,114 +108,90 @@
   font-family: 'Noto Sans KR', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-	
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #2c3e50;
   min-height: 100vh;
-  margin: 80px 0;
-}
+  padding-top: 80px;
 
-.wrapper {
-	display: flex;
-	border: 2px solid #a0a0a0;
-	border-radius: 16px;
-	flex-direction: column;
-	padding: 0 64px;
-  justify-content: space-between;
-}
-	
-form {
-	display: flex;
-	flex-direction: column;
-	margin-top: 40px;
-}
+  .wrapper {
+    display: flex;
+    border: 2px solid #a0a0a0;
+    border-radius: 16px;
+    flex-direction: column;
+    padding: 0 64px;
+    justify-content: space-between;
 
-.welcomeText {
-	font-size: 40px;
-	font-weight: bold;
-	font-family: 'Noto Sans KR', sans-serif;
-  margin-bottom: 40px;
-	background: linear-gradient(180deg, #744CF3 0%, #B8A2FF 100%);
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
 
-.inputWrapper {
-  margin-bottom: 100px;
-}
-.inputArea {
-	margin: 12px 0;
-	display: flex;
-	flex-direction: column;
-  justify-content: left;
-}
+      .welcomeText {
+        font-size: 40px;
+        font-weight: bold;
+        font-family: 'Noto Sans KR', sans-serif;
+        margin-bottom: 40px;
+        background: linear-gradient(180deg, #744CF3 0%, #B8A2FF 100%);
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-.inputArea label {
-	text-align: left;
-	color: #808080;
-	font-size: 20px;
-  font-weight: bold;
-	
-	margin-left: 4px;
-}
+      .inputWrapper {
+        margin-bottom: 100px;
 
-.inputArea input {
-  height: 61px;
-  border: 1px solid #808080;
-  border-radius: 16px;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 16px 80px 16px 12px;
-}
+        .inputArea {
+          margin: 12px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: left;
 
-.inputarea {
-	margin-bottom: 24px;
-	display: flex;
-	flex-direction: column;
-    justify-content: left;
-	& > label {
-		text-align: left;
-		color: #808080;
-		font-size: 20px;
-		font-weight: bold;
+          label {
+            text-align: left;
+            color: #808080;
+            font-size: 20px;
+            font-weight: bold;
 
-		margin-left: 4px;
-	}
-	& > input {
-		height: 61px;
-		border: 1px solid #808080;
-		border-radius: 16px;
+            margin-left: 4px;
+          }
 
-		font-size: 20px;
-		font-weight: bold;
+          input {
+            height: 61px;
+            border: 1px solid #808080;
+            border-radius: 16px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 16px 80px 16px 12px;
+          }
+        }
+      }
 
-		padding: 16px 80px 16px 12px;
-	}
-}
+      .nextBtn {
+        background: #744CF3;
+        border-radius: 16px;
+        font-size: 24px;
+        color: #FFFFFF;
+        font-weight: bold;
+        padding: 16px 0;
+        width: 100%;
+        margin-bottom: 52px;
+        cursor: pointer;
 
-.nextBtn {
-	background: #744CF3;
-	border-radius: 16px;
-	font-size: 24px;
-	color: #FFFFFF;
-	font-weight: bold;
-	padding: 16px 0;
-  width: 100%;
-  margin-bottom: 52px;
-	cursor: pointer;
-}
-	
-.nextBtn:hover {
-	background-color: #643fd9;
-	color: #e3e3e3;
-}
+        &:hover {
+          background-color: #643fd9;
+          color: #e3e3e3;
+        }
 
-.nextBtn:active {
-	background-color: #5135AA;
-	color: #B3B3B3;
+        &:active {
+          background-color: #5135AA;
+          color: #B3B3B3;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 800px) {
