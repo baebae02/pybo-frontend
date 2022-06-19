@@ -40,27 +40,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-nav .text:hover {
-  color: rgba(229, 229, 229, 1) !important;
-}
-nav .text:active {
-  color: rgba(179, 179, 179, 1) !important;
-}
-nav .text.router-link-active,
-nav .text.router-link-exact-active {
-  color: rgba(255, 184, 0, 1) !important;
-}
-nav .text.router-link-active:hover {
-  color: rgba(229, 166, 0, 1) !important;
-}
-nav .text.router-link-exact-active:active {
-  color: rgba(179, 129, 0, 1) !important;
-}
-
-  a {
-    text-decoration: none;
-  }
-
 	.gnb {
 		position: fixed;
 		top: 0;
@@ -86,6 +65,25 @@ nav .text.router-link-exact-active:active {
 			flex-direction: row;
 			align-items: center;
 			gap: 40px;
+      a {
+        text-decoration: none;
+      }
+      .text:hover {
+        color: rgba(229, 229, 229, 1) !important;
+      }
+      .text:active {
+        color: rgba(179, 179, 179, 1) !important;
+      }
+      .text.router-link-active,
+      .text.router-link-exact-active {
+        color: rgba(255, 184, 0, 1) !important;
+      }
+      .text.router-link-active:hover {
+        color: rgba(229, 166, 0, 1) !important;
+      }
+      .text.router-link-exact-active:active {
+        color: rgba(179, 129, 0, 1) !important;
+      }
 			& > .text {
 				font-size: 16px;
 				font-weight: bold;
