@@ -2,7 +2,7 @@
     <div class="gnb">
       <img src="@/assets/logo.svg" alt="" @click="goHome">
       <nav class="nav">
-        <router-link class=text class-active="active" to="/introduce" exact>
+        <router-link class=text class-active="active" to="/intro" exact>
           소개
         </router-link>
         <router-link class=text class-active="active" to="/study" exact>
