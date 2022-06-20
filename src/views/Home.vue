@@ -20,9 +20,9 @@
 				<input type="password" placeholder="비밀번호" />
 			</div>
 			<button class="login-btn" click="pagination">로그인</button>
-			<div class="link-signup">
+			<router-link class="link-signup" to="/signup">
 				계정이 없으신가요?
-			</div>
+			</router-link>
 		</div>
 	</div>
 </template>
