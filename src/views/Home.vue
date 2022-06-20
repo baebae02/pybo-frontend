@@ -9,7 +9,7 @@
 				<div class="text">
 					Study With Bae
 				</div>
-				<img src="@/assets/pencil.svg">
+				<img class="pencil" src="@/assets/pencil.svg">
 			</div>
 			<div class="sub-title">
 				코딩 테스트 합격을 위한 그날까지	
@@ -80,6 +80,9 @@
 					font-weight: bold;
 					margin-right: 4px;
 				}
+				& > .pencil {
+					animation: vibrate 5s 1s infinite;
+				}
 			}
 			& > .sub-title {
 				color: #808080;
@@ -146,6 +149,26 @@
 	@keyframes wave {
 		100% {
 			transform: rotate(360deg);
+		}
+	}
+	@keyframes vibrate {
+		0% {
+			transform: rotate(0deg);
+		}
+		6% {
+			transform: rotate(20deg);
+		}
+		9% {
+			transform: rotate(-15deg);
+		}
+		11% {
+			transform: rotate(10deg);
+		}
+		13% {	
+			transform: rotate(-5deg);
+		}
+		15% {
+			transform: rotate(0deg);
 		}
 	}
 </style>

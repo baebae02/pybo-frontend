@@ -11,7 +11,7 @@
     <div class="page subject" style="justify-content: space-evenly">
       <div>
         <TextOption Bolder="true" content="스터디 소개" style="margin-bottom: 8px;"></TextOption>
-        <div class="text">
+        <div class="text bold">
           이대로는 코테 신청도 못한다 싶어 만든 스터디<br/>
           알고리즘 공부 미룰 수 있을 때까지 미룬 자의 스터디 <br/>
           알고리즘 공부 하기 싫어서 스터디장이 되어버렸습니다.
@@ -20,9 +20,9 @@
       </div>
       <div>
         <TextOption Bolder="true" content="스터디 일정" style="margin-bottom: 8px;"></TextOption>
-        <div class="text">7월 12일 - 8월 5일(약 4주)</div>
-        <div style="font-size: 20px;">매주 화요일, 토요일마다 오후 10시, 구글미트</div>
-        <div style="font-size: 20px;" class="gray">(요일 및 시간은 스터디원의 합의 후 변동될 수 있습니다)</div>
+        <div class="text bold">7월 12일 - 8월 5일(약 4주)</div>
+        <div class="text">매주 화요일, 토요일마다 오후 10시, 구글미트</div>
+        <div class="text gray">(요일 및 시간은 스터디원의 합의 후 변동될 수 있습니다)</div>
         <img src="@/assets/calender.png" alt="" width="340px">
       </div>
     </div>
@@ -87,12 +87,12 @@
         <li>제출한 과제 중에서 가장 효율적이고 창의적인 알고리즘을 베스트 코드로 선정합니다.</li>
         <li><span style="color: #744CF3">예제 문제 & 심화 문제</span>는 같은 문제를 각자 푸는 것이며 문제를 푸는 도중 질의응답이 자유롭게 가능합니다.</li>
         <li>과제 미제출 또는 지각 시 <span style="color: #FFB800">경고</span> 1회 부여, 결석 시 <span style="color: #FFB800">옐로카드</span> 1회 부여됩니다.</li>
-        <li><span style="color: #FFB800">옐로카드</span> 2회 부여시 스터디에서 퇴출됩니다.</li>
+        <li><span style="color: #FFB800">옐로카드</span> 2회 부여 시 스터디에서 퇴출됩니다.</li>
       </ul>
 		</div>
     <div class="page subject">
       <TextOption Bolder="true" content="과제 소개" style="margin-bottom: 8px;"></TextOption>
-      <div class="text">과제는 당일 배운 개념을 복습하는 목적입니다.<br/>
+      <div class="text bold">과제는 당일 배운 개념을 복습하는 목적입니다.<br/>
         백준에서 개념과 관련된 문제 5개가 주어지며 <br/>
       5문제 중 2문제를 선택하여 제출하면 됩니다. </div>
       <div class="text gray">
@@ -203,12 +203,9 @@
 				display: flex;
 				flex-direction: column;
 				gap: 8px;
-        div:nth-child(2n) > .minute {
-          background-color: #876FD2;
-        }
-        div:nth-child(2n+1) > .content {
-          background-color: #5937C7;
-        }
+				
+				
+				
 				& > .row {
 					display: flex;
 					flex-direction: row;
@@ -222,37 +219,45 @@
 					& > .minute{
 						color: #ffffffcc;
 						width: 100px;
-            text-align: center;
-            padding: 12px 0;
+						text-align: center;
+						padding: 12px 0;
 						
 						background-color: #AB90FF;
+						
 					}
 					& > .content {
 						color: #ffffffcc;
 						padding: 12px 0 12px 32px;
-						min-width: 316px;
+						min-width: 340px;
 						
 						background-color: #744CF3;
+					}
+					&:nth-child(2n) > .minute {
+						background-color: #876FD2;
+					}
+					&:nth-child(2n) > .content {
+						background-color: #5937C7;
 					}
 				}
 			}
       & > .split-bar {
         width: 35%;
+		height: 1px;
         margin-top: 8px;
-        border-top: 1px solid #808080;
+		background-color: #808080;
         p {
           color: #E3E3E3;
           text-align: right;
           font-size: 12px;
-          font-weight: bold;
+          margin-top: 4px;
         }
       }
       & > .explain {
-        margin-top: 100px;
+        margin-top: 120px;
         li {
           color: #FFFFFF;
-          font-weight: 400;
-          font-size: 20px;
+          font-weight: 300;
+          font-size: 16px;
           line-height: 29px;
         }
       }
@@ -264,10 +269,13 @@
       flex-direction: column;
       text-align: center;
       .text {
+        color: #3c3c3c;
         font-size: 20px;
-        font-weight: bold;
         text-align: center;
       }
+		.bold {
+			font-weight: bold;
+		}
       .gray {
         color: #808080;
       }
