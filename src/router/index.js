@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Main from '../views/Main.vue'
 import About from '../views/About.vue'
 import axios from 'axios'
 
@@ -9,8 +9,8 @@ Vue.prototype.$axios = axios
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Main',
+    component: Main
   },
   {
     path: '/about',

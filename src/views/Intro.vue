@@ -180,7 +180,7 @@
 				bottom: 0;
 				& > img {
 					opacity: 0;
-					animation: appear 3s 1s forwards linear;
+					animation: appear 2s 1s forwards cubic-bezier(0.65, 0.05, 0.36, 1);
 				}
 			}
 		}
@@ -293,9 +293,11 @@
 	@keyframes appear {
 		0% {
 			opacity: 0;
+			transform: translateY(50px);
 		}
 		100% {
 			opacity: 1;
+			transform: translateY(0px);
 		}
 	}
 </style>
