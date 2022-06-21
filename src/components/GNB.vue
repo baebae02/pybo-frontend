@@ -1,6 +1,6 @@
 <template>
     <div class="gnb">
-      <img src="@/assets/logo.svg" alt="" @click="goHome">
+      <img src="@/assets/logo.svg" alt="" @click="goMain">
       <nav class="nav">
         <router-link class=text class-active="active" to="/intro" exact>
           소개
@@ -29,7 +29,7 @@ export default {
   components: {
   },
   methods: {
-    goHome() {
+    goMain() {
       router.push({ path: '/' })
     }
   },
