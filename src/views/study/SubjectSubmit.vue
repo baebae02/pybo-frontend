@@ -73,7 +73,9 @@
 <script>
 import TextOption from '@/components/TextOption'
 import PurpleBtn from '@/components/PurpleBtn'
-export default {
+import router from "@/router";
+
+    export default {
   name: 'SubjectSubmit',
   components : {
       TextOption,
@@ -97,8 +99,8 @@ export default {
           if (this.code1 === '' || this.code2 === '') 
               alert("빈 코드는 제출할 수 없습니다.");
           else
-              alert(this.code1, this.code2);
               alert("제출하시겠습니까?")
+              router.push({ name: 'SubjectComplete' }) 
       }
   }
 }

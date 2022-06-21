@@ -50,6 +50,11 @@ const routes = [
     name: 'SubjectSubmit',
     component: () => import(/* webpackChunkName: "subjectsubmit" */ '../views/study/SubjectSubmit.vue')
   },
+  {
+    path: '/subject/complete',
+    name: 'SubjectComplete',
+    component: () => import(/* webpackChunkName: "subjectcomplete" */ '../views/study/SubjectComplete.vue')
+  },
 ]
 
 const router = new VueRouter({
