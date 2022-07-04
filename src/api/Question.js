@@ -6,7 +6,7 @@ import {axiosInstance} from "@/api/instance";
 @param {number} limit
  */
 const getQuestionList = async (page, limit) => {
-    return axiosInstance.request('/api/list', {
+    return axiosInstance.request('GET','http://127.0.0.1:5000/question/list', {
         page: page,
         limit: limit
     });
@@ -17,7 +17,7 @@ const getQuestionList = async (page, limit) => {
 @param id
  */
 const getQuestion = async id => {
-    return axiosInstance.request('GET', '/api/detail', { id });
+    return axiosInstance.request('GET', '/detail', { id });
 };
 
 /*

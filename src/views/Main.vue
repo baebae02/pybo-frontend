@@ -9,31 +9,56 @@
 				<div class="text">
 					Study With Bae
 				</div>
-				<img class="pencil" src="@/assets/pencil.svg">
+				<img class="pencil" src="@/assets/pencil.svg" alt="">
 			</div>
 			<div class="sub-title">
 				코딩 테스트 합격을 위한 그날까지	
 			</div>
-			<div class="login-form">
-				<input type="text" placeholder="아이디" />
-				<div class="line" />
-				<input type="password" placeholder="비밀번호" />
-			</div>
-			<button class="login-btn" click="pagination">로그인</button>
-			<router-link class="link-signup" to="/signup">
-				계정이 없으신가요?
-			</router-link>
+      <div class="login-form" v-if="this.needLogin">
+        <input type="text" placeholder="아이디" v-model="username"/>
+        <div class="line" />
+        <input type="password" placeholder="비밀번호" v-model="password" />
+      </div>
+      <button class="login-btn" @click="login" v-if="this.needLogin">로그인</button>
+      <router-link class="link-signup" to="/signup" v-if="this.needLogin">
+        계정이 없으신가요?
+      </router-link>
+      <div v-else>
+        <p>{{ logMessage }}</p>
+      </div>
 		</div>
 	</div>
 </template>
 
 <script>
+    import { loginUser } from '@/api/index.js';
+
     export default {
       name: 'Main',
       methods: {
+        async login() {
+          const userData = {
+            username: this.username,
+            password: this.password
+          };
+          const { data } = await loginUser(userData);
+          console.log(data.username);
+          alert(data.username);
+          this.logMessage = `${data.username} 님이 로그인하셨습니다`;
+          this.needLogin = false
+          this.initForm();
+        },
+        initForm() {
+          this.username = '';
+          this.password = '';
+        },
       },
       data() {
         return {
+          username: '',
+          password: '',
+          needLogin: true,
+          logMessage: '',
         }
       }
     }

@@ -15,7 +15,7 @@
           출석부
         </router-link>
         <router-link class="sign" class-active="active" to="/signup">
-          로그인
+          회원가입
         </router-link>
       </nav>
 	</div>
