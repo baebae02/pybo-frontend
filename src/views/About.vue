@@ -22,6 +22,7 @@
 // import { loginUser } from '@/api/index.js';
 
 export default {
+  name: 'About',
   data() {
     return {
       // form values

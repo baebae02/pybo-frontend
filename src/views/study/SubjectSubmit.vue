@@ -4,7 +4,7 @@
         <TextOption Bold="true" content="Task 1"></TextOption>
         <div class="option">
             <div class="select-box">
-                <select v-model="selected">
+                <select v-model="selectedLang">
                   <option disabled value="">언어</option>
                   <option>C</option>
                   <option>C++</option>
@@ -16,7 +16,7 @@
                 </span>
             </div>
             <div class="select-box">
-                <select v-model="selected">
+                <select v-model="selectedNum">
                   <option disabled value="">문제 번호</option>
                   <option>2001</option>
                   <option>2002</option>
@@ -37,7 +37,7 @@
         <TextOption Bold="true" content="Task 2"></TextOption>
         <div class="option">
             <div class="select-box">
-                <select v-model="selected">
+                <select v-model="selectedLang2">
                   <option disabled value="">언어</option>
                   <option>C</option>
                   <option>C++</option>
@@ -49,7 +49,7 @@
                 </span>
             </div>
             <div class="select-box">
-                <select v-model="selected">
+                <select v-model="selectedNum2">
                   <option disabled value="">문제 번호</option>
                   <option>2001</option>
                   <option>2002</option>
@@ -83,7 +83,10 @@ import router from "@/router";
   },
   data() {
     return {
-        selected: '',
+        selectedNum: '',
+        selectedNum2: '',
+        selectedLang: '',
+        selectedLang2: '',
         code1: '',
         code2: ''
     };

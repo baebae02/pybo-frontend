@@ -1,4 +1,3 @@
-<script src="../../router/index.js"></script>
 <template>
   <div class="signup">
     <div class="wrapper">
@@ -56,7 +55,6 @@
 </template>
 
 <script>
-import router from "@/router";
 
 export default {
   name: 'SignUp',
@@ -89,18 +87,18 @@ export default {
         baekjoon: this.baekjoon
       }).catch(function (error) {
         alert(error);
+        this.$router.go();
       });
       if (res.status === 200) {
         this.loginSuccess = true;
         alert('회원가입 되었습니다.');
-        await router.push({name: 'Main'})
+        await this.$router.push({name: 'Main'})
       } else {
         alert('오류가 발생했습니다. 다시 진행해주세요.');
       }
     },
     pagination() {
       this.page = !this.page;
-      console.log(this.page);
     },
   }
 }

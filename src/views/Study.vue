@@ -14,7 +14,7 @@
               다음 시간은
               <TextOption Purple="true" content="1"/>
               주차
-              <TextOption Purple="true" content="2"/>
+              <TextOption Purple="true" content="1"/>
               번째 스터디입니다.
             </div>
             <div class="progress">
@@ -52,7 +52,7 @@
           <div class="fill org">Topic</div>
           <TextOption SmallGray="true" content="이진 검색 트리(Binary Search Tree)"></TextOption>
           <div class="fill blue">Presenter</div>
-          <TextOption SmallGray="true" content="이종우"></TextOption>
+          <TextOption SmallGray="true" content="배서현"></TextOption>
         </div>
       </div>
     </div>
@@ -171,7 +171,7 @@ export default {
   name: 'StudyInfo',
   data() {
     return {
-      current: 2,
+      current: 1,
       total: 10
     };
   },

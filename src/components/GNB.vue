@@ -14,7 +14,10 @@
         <router-link class=text class-active="active" to="/attendance" exact>
           출석부
         </router-link>
-        <router-link class="sign" class-active="active" to="/signup">
+        <router-link class="sign" class-active="active" v-if="$store.state.username !== ''" to="/auth/logout">
+          로그아웃
+        </router-link>
+        <router-link class="sign" class-active="active" to="/signup" v-else>
           회원가입
         </router-link>
       </nav>
@@ -31,6 +34,12 @@ export default {
   methods: {
     goMain() {
       router.push({ path: '/' })
+    },
+    logout() {
+      alert('로그아웃하시겠습니까?');
+      this.$store.state.username = ''
+      localStorage.removeItem('username');
+      this.$router.push('Main');
     }
   },
   data: () => ({

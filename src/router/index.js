@@ -48,13 +48,18 @@ const routes = [
   {
     path: '/subject/submit',
     name: 'SubjectSubmit',
-    component: () => import(/* webpackChunkName: "subjectsubmit" */ '../views/study/SubjectSubmit.vue')
+    component: () => import(/* webpackChunkName: "subject-submit" */ '../views/study/SubjectSubmit.vue')
   },
   {
     path: '/subject/complete',
     name: 'SubjectComplete',
-    component: () => import(/* webpackChunkName: "subjectcomplete" */ '../views/study/SubjectComplete.vue')
+    component: () => import(/* webpackChunkName: "subject complete" */ '../views/study/SubjectComplete.vue')
   },
+  {
+    path: '/auth/logout',
+    name: 'Logout',
+    component: () => import(/* webpackChunkName: "logout" */ '../views/auth/Logout.vue')
+  }
 ]
 
 const router = new VueRouter({

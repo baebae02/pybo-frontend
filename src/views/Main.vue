@@ -7,24 +7,24 @@
 		<div class="right">
 			<div class="title">
 				<div class="text">
-					Study With Bae
+					Study With {{ this.$store.state.username }}
 				</div>
 				<img class="pencil" src="@/assets/pencil.svg" alt="">
 			</div>
 			<div class="sub-title">
 				코딩 테스트 합격을 위한 그날까지	
 			</div>
-      <div class="login-form" v-if="this.needLogin">
+      <div class="login-form" v-if="this.$store.state.username === ''">
         <input type="text" placeholder="아이디" v-model="username"/>
         <div class="line" />
         <input type="password" placeholder="비밀번호" v-model="password" />
       </div>
-      <button class="login-btn" @click="login" v-if="this.needLogin">로그인</button>
-      <router-link class="link-signup" to="/signup" v-if="this.needLogin">
+      <button class="login-btn" @click="login" v-if="this.$store.state.username === ''">로그인</button>
+      <router-link class="link-signup" to="/signup" v-if="this.$store.state.username === ''">
         계정이 없으신가요?
       </router-link>
-      <div v-else>
-        <p>{{ logMessage }}</p>
+      <div class="msg" v-else>
+        {{ logMessage }}
       </div>
 		</div>
 	</div>
@@ -44,8 +44,9 @@
           const { data } = await loginUser(userData);
           console.log(data.username);
           alert(data.username);
-          this.logMessage = `${data.username} 님이 로그인하셨습니다`;
-          this.needLogin = false
+          this.logMessage = `${data.username} 님 스터디에 오신 것을 환영합니다 😘`;
+          this.$store.state.username = data.username;
+          localStorage.setItem('username', data.username);
           this.initForm();
         },
         initForm() {
@@ -57,8 +58,7 @@
         return {
           username: '',
           password: '',
-          needLogin: true,
-          logMessage: '',
+          logMessage: this.$store.state.username ? `${ this.$store.state.username }님 모르는 건 질문하세요:)` : '',
         }
       }
     }
@@ -169,6 +169,11 @@
 					color: #303030;
 				}
 			}
+      & > .msg {
+        color: #808080;
+        font-size: 16px;
+        font-weight: bold;
+      }
 		}
 	}
 	@keyframes wave {

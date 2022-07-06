@@ -21,7 +21,7 @@
       <div>
         <TextOption Bolder="true" content="스터디 일정" style="margin-bottom: 8px;"></TextOption>
         <div class="text bold">7월 12일 - 8월 5일(약 4주)</div>
-        <div class="text">매주 화요일, 토요일마다 오후 10시, 구글미트</div>
+        <div class="text">매주 수요일, 일요일마다 오후 10시 30분, 구글미트</div>
         <div class="text gray">(요일 및 시간은 스터디원의 합의 후 변동될 수 있습니다)</div>
         <img src="@/assets/calender.png" alt="" width="340px">
       </div>
